@@ -1,10 +1,14 @@
 {
-    "name": "laravel/laravel",
+    "name": "sdg/mindcare",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "This is a community development project that focus on raising awareness for mental health issues. It also addresses the problem of connecting patient with this type of illness to professionals that can help them recover",
     "keywords": [
-        "framework",
-        "laravel"
+        "Mental Health",
+        "Food disorder",
+        "Posttraumatic Stress Disorder",
+        "Eating Disorders",
+        "BORDERLINE PERSONALITY DISORDER",
+        "Children ADHD questionnaire with scoring sheet"
     ],
     "license": "MIT",
     "require": {

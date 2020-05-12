@@ -1,70 +1,61 @@
-## About Rapido Api Boiler Plate
+A one-liner phrase describing this project or app
 
-This is a complete api boiler plate that allows you to easily set up and get your development work going without any hassle. The boiler plate is built on Laravel, one of PHP's most popular framework. It is developed by [rheedwahn](https://rheedwahn.github.io/). The boiler plate has the following implementation out of the box
+[![Codacy Badge](https://img.shields.io/badge/Code%20Quality-D-red)](https://img.shields.io/badge/Code%20Quality-D-red)
 
-- User Authentication using laravel passport for token management
-- User Registration
-- Roles Management
-- Permissions Management
-- Role Based Access Level Control (This can be modified to permission based for granular control)
-- Profile Management
+## About
 
-## Api Endpoints
+What is this project about. Ok to enrich here or the section above it with an image. 
 
-To download the postman collection, please click on this [link](https://www.getpostman.com/collections/eb18b48ebbd906a5a900). The endpoints has the following folder structure
+Once this repo has been setup on Codacy by the TTL, replace the above badge with the actual one from the Codacy dashboard, and add the code coverage badge as well. This is mandatory
 
-- Auth
-  - Login Request
-  - Register Request
-  - Verify Email Request
-  - Temporary Login Request
-  - Forgot Password Request
-  - Reset Password Request
-- User
-  - Me Request
-  - Update Request
-  - Store Request
-  - Update User by Admin Request
-  - Delete Request
-  - List Request
-- Roles
-  - List Request
-  - Store Request
-  - Update Request
-  - Delete Request
-  - Assing Permissions to Role Request
-- Permissions
-  - List Request
-  - Store request
-  - Update Request
-  - Delete Request
+This is a simple php starter repo template for setting up your project. The setup contains
 
-## Installation
+- Composer: For adding third party dependencies
 
-Setting up this boiler plate is easy especially for those familiar with the laravel ecosystem. The following steps are required to get this up and running
+- phpunit: For runnung tests
 
-- Clone the project
-- Run `composer install` to install dependency
-- Copy the `.env.example` to `.env` file
-- Set up the database credentials to suit your configuration
-- Run `php artisan migrate` to migrate the tables into your database
-- Run `php artisan passport:install` to get your personal access client and grant created
-- Run `php artisan db:seed` to seed an initial user to your users table
-- Download the postman collection from the link above
-- Import the downloaded collection
-- Serve the application on any port of your choice
+- php-cs-fixer: For formatting code to match php coding standard
 
-## Todo
-- Implement Unit and feature tests on all the functionalities
+## Why
+
+Talk about what problem this solves, what SDG(s) and SGD targets it addresses and why these are imoirtant
+
+## Usage
+ How would someone use what you have built, include URLs to the deployed app, service e.t.c when you have it setup
+
+
+## Setup
+
+Run `composer install` and `composer dump-autoload` to get started.
+
+`index.php` is the entry to the project and source code should go into the `src` folder.
+
+All tests should be written in the test folder.
+
+#### Hints
+
+- Test: `composer run test`
+- Install dependencies: `composer install <dep name>`
+- Lint: `composer run php-cs-fixer`
+
+## Authors
+
+List the team behind this project. Their names linked to their Github, LinkedIn, or Twitter accounts should siffice. Ok to signify the role they play in the project, including the TTL and mentor
 
 ## Contributing
+If this project sounds interesting to you and you'd like to contribute, thank you!
+First, you can send a mail to buildforsdg@andela.com to indicate your interest, why you'd like to support and what forms of support you can bring to the table, but here are areas we think we'd need the most help in this project :
+1.  area one (e.g this app is about human trafficking and you need feedback on your roadmap and feature list from the private sector / NGOs)
+2.  area two (e.g you want people to opt-in and try using your staging app at staging.project-name.com and report any bugs via a form)
+3.  area three (e.g here is the zoom link to our end-of sprint webinar, join and provide feedback as a stakeholder if you can)
 
-For anyone willing to contribute to this boiler plate, please dont hesitate to open a PR with your contributions
+## Acknowledgements
 
-## Security Vulnerabilities
+Did you use someone else’s code?
+Do you want to thank someone explicitly?
+Did someone’s blog post spark off a wonderful idea or give you a solution to nagging problem?
 
-If you discover a security vulnerability within this boiler plate, please open a PR with your fixes.
+It's powerful to always give credit.
 
-## License
-
-Rapido Api boiler plate is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## LICENSE
+MIT
