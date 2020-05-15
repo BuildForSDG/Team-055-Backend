@@ -31,6 +31,14 @@ Route::group(['middleware' => 'apiLogger'], function() {
         Route::delete('/{permission}', 'Api\Permission\PermissionController@delete');
     });
 
+    Route::group(['prefix' => 'mental-conditions'], function() {
+       Route::get('/', 'Api\MentalCondition\MentalConditionController@list');
+       Route::get('/{mentalCondition}', 'Api\MentalCondition\MentalConditionController@single');
+       Route::post('/', 'Api\MentalCondition\MentalConditionController@store');
+       Route::patch('/{mentalCondition}', 'Api\MentalCondition\MentalConditionController@update');
+       Route::delete('/{mentalCondition}', 'Api\MentalCondition\MentalConditionController@delete');
+    });
+
     Route::get('/logout', 'Api\Me\MeController@logout');
 });
 

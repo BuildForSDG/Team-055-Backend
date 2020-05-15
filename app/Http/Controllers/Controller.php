@@ -36,4 +36,9 @@ class Controller extends BaseController
             )->toDateTimeString()
         ]);
     }
+
+    protected function deleteResponse()
+    {
+        return response()->json(['status' => 'success', 'message' => 'resource deleted successfully'], 200);
+    }
 }
