@@ -48,7 +48,7 @@ class RoleController extends Controller
     public function delete(Role $role)
     {
         $role->delete();
-        return response()->json(['status' => 'success', 'message' => 'resource deleted successfully'], 200);
+        return $this->deleteResponse();
     }
 
     public function assignPermissions(AssignPermissionRequest $request, Role $role)
