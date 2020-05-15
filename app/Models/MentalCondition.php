@@ -17,4 +17,9 @@ class MentalCondition extends Model
     {
         return 'slug';
     }
+
+    public function mental_condition_questions()
+    {
+        return $this->hasMany(MentalConditionQuestion::class);
+    }
 }

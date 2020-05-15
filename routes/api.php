@@ -37,6 +37,13 @@ Route::group(['middleware' => 'apiLogger'], function() {
        Route::post('/', 'Api\MentalCondition\MentalConditionController@store');
        Route::patch('/{mentalCondition}', 'Api\MentalCondition\MentalConditionController@update');
        Route::delete('/{mentalCondition}', 'Api\MentalCondition\MentalConditionController@delete');
+
+       Route::group(['prefix' => '/{mentalCondition}/questions'], function() {
+           Route::get('/', 'Api\MentalCondition\MentalConditionQuestionController@lists');
+           Route::post('/', 'Api\MentalCondition\MentalConditionQuestionController@store');
+           Route::patch('/{mentalConditionQuestion}', 'Api\MentalCondition\MentalConditionQuestionController@update');
+           Route::delete('/{mentalConditionQuestion}', 'Api\MentalCondition\MentalConditionQuestionController@delete');
+       });
     });
 
     Route::get('/logout', 'Api\Me\MeController@logout');
