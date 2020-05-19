@@ -9,6 +9,7 @@ use App\Http\Resources\Api\MentalCondition\MentalConditionQuestionResource;
 use App\Models\MentalCondition;
 use App\Models\MentalConditionQuestion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MentalConditionQuestionController extends Controller
 {
@@ -25,17 +26,25 @@ class MentalConditionQuestionController extends Controller
 
     public function store(StoreRequest $request, MentalCondition $mentalCondition)
     {
-        $question = $mentalCondition->mental_condition_questions()->create([
-            'question' => $request->question
-        ]);
+        DB::transaction(function () use ($request, $mentalCondition, &$question) {
+            $question = $mentalCondition->mental_condition_questions()->create([
+                'question' => $request->question
+            ]);
+            $this->createQuestionOptions($question, $request->options);
+        });
+
         return new MentalConditionQuestionResource($question);
     }
 
     public function update(UpdateRequest $request, MentalCondition $mentalCondition,
                            MentalConditionQuestion $mentalConditionQuestion)
     {
-        $mentalConditionQuestion->question = $request->question;
-        $mentalConditionQuestion->save();
+        DB::transaction(function () use($mentalConditionQuestion, $request) {
+            $mentalConditionQuestion->question = $request->question;
+            $mentalConditionQuestion->save();
+            $mentalConditionQuestion->mental_condition_question_options()->delete();
+            $this->createQuestionOptions($mentalConditionQuestion, $request->options);
+        });
         return new MentalConditionQuestionResource(MentalConditionQuestion::find($mentalConditionQuestion->id));
     }
 
@@ -43,5 +52,15 @@ class MentalConditionQuestionController extends Controller
     {
         $mentalConditionQuestion->delete();
         return $this->deleteResponse();
+    }
+
+    private function createQuestionOptions($question, $options)
+    {
+        foreach ($options as $option) {
+            $question->mental_condition_question_options()->firstOrCreate([
+                'option' => $option['option'],
+                'mark' => isset($option['mark']) ? $option['mark'] : null
+            ]);
+        }
     }
 }

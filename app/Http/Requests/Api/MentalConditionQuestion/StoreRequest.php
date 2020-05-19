@@ -29,7 +29,10 @@ class StoreRequest extends BaseRequest
                 'required',
                 Rule::unique('mental_condition_questions', 'question')->where('mental_condition_id',
                                                                                             $this->mentalConditionId())
-            ]
+            ],
+            'options' => 'sometimes|required|array',
+            'options.*.option' => 'required',
+            'options.*.mark' => 'sometimes|required'
         ];
     }
 }
