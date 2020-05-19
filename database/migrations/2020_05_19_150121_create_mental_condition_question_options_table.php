@@ -17,6 +17,7 @@ class CreateMentalConditionQuestionOptionsTable extends Migration
             $table->id();
             $table->bigInteger('question_id')->unsigned()->index();
             $table->text('option');
+            $table->integer('mark')->nullable();
             $table->timestamps();
 
             $table->foreign('question_id')->references('id')

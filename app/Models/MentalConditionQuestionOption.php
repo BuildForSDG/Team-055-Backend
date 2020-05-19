@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class MentalConditionQuestionOption extends Model
 {
-    protected $fillable = ['option'];
+    protected $fillable = ['option', 'mark'];
 
     public function mental_condition_question()
     {

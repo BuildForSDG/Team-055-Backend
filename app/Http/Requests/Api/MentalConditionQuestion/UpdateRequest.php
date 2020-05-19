@@ -38,7 +38,11 @@ class UpdateRequest extends BaseRequest
                 'required',
                 'array'
             ],
-            'options.*' => [
+            'options.*option' => [
+                'required'
+            ],
+            'options.*mark' => [
+                'sometimes',
                 'required'
             ]
         ];

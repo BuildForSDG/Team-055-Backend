@@ -58,7 +58,8 @@ class MentalConditionQuestionController extends Controller
     {
         foreach ($options as $option) {
             $question->mental_condition_question_options()->firstOrCreate([
-                'option' => $option
+                'option' => $option['option'],
+                'mark' => isset($option['mark']) ? $option['mark'] : null
             ]);
         }
     }

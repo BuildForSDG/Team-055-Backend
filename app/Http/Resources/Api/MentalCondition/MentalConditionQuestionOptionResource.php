@@ -16,7 +16,8 @@ class MentalConditionQuestionOptionResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'option' => $this->option
+            'option' => $this->option,
+            'mark' => $this->mark
         ];
     }
 }

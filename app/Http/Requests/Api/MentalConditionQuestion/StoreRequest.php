@@ -31,7 +31,8 @@ class StoreRequest extends BaseRequest
                                                                                             $this->mentalConditionId())
             ],
             'options' => 'sometimes|required|array',
-            'options.*' => 'required'
+            'options.*.option' => 'required',
+            'options.*.mark' => 'sometimes|required'
         ];
     }
 }
