@@ -32,6 +32,14 @@ class UpdateRequest extends BaseRequest
                     ->ignore($this->mentalConditionQuestion->id, 'id')
                     ->where('mental_condition_id',
                     $this->mentalConditionId())
+            ],
+            'options' => [
+                'sometimes',
+                'required',
+                'array'
+            ],
+            'options.*' => [
+                'required'
             ]
         ];
     }
