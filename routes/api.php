@@ -52,6 +52,10 @@ Route::group(['middleware' => 'apiLogger'], function() {
     });
 
     Route::get('/logout', 'Api\Me\MeController@logout');
+
+    Route::get('/states', 'Api\State\StateController@lists');
+    Route::get('/states/{state}/lgas', 'Api\State\StateController@lgaLists');
+
 });
 
 
