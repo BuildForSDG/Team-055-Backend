@@ -1,6 +1,5 @@
-A one-liner phrase describing this project or app
 
-[![Codacy Badge](https://img.shields.io/badge/Code%20Quality-D-red)](https://img.shields.io/badge/Code%20Quality-D-red)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/1b22c6228d654f0eb675fb2ee329160e)](https://www.codacy.com/gh/BuildForSDG/MindCare-Backend?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=BuildForSDG/MindCare-Backend&amp;utm_campaign=Badge_Grade)
 
 ## About
 

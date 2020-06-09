@@ -38,6 +38,11 @@ Route::group(['middleware' => 'apiLogger'], function() {
        Route::patch('/{mentalCondition}', 'Api\MentalCondition\MentalConditionController@update');
        Route::delete('/{mentalCondition}', 'Api\MentalCondition\MentalConditionController@delete');
 
+       Route::group(['prefix' => '/{mentalCondition}/answers'], function() {
+           Route::get('/', 'Api\Answer\AnswerController@lists');
+           Route::post('/', 'Api\Answer\AnswerController@store');
+       });
+
        Route::group(['prefix' => '/{mentalCondition}/questions'], function() {
            Route::get('/', 'Api\MentalCondition\MentalConditionQuestionController@lists');
            Route::post('/', 'Api\MentalCondition\MentalConditionQuestionController@store');
