@@ -11,7 +11,7 @@ class MentalConditionTableSeeder extends Seeder
      */
     public function run()
     {
-        \Illuminate\Support\Facades\DB::table('mental_conditions')->truncate();
+        \Illuminate\Support\Facades\DB::table('mental_conditions')->delete();
         $conditions = [
             [
                 'mental_condition' => $ilness = 'Anxiety Disorders',

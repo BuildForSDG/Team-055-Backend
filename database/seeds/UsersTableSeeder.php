@@ -22,7 +22,8 @@ class UsersTableSeeder extends Seeder
 
         //create profile for the user
         factory(Profile::class)->create([
-            'user_id' => $user->id
+            'user_id' => $user->id,
+            'lga_id' => \App\Models\Lga::first()->id
         ]);
 
         //assign user with the role admin
