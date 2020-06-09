@@ -15,7 +15,7 @@ class AddMoreFieldsToProfilesTable extends Migration
     {
         Schema::table('profiles', function (Blueprint $table) {
             $table->bigInteger('lga_id')->index()->nullable();
-            $table->bigInteger('state_id')->index();
+            $table->bigInteger('state_id')->index()->nullable();
             $table->string('phone_number')->nullable();
         });
     }
