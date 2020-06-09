@@ -22,4 +22,9 @@ class MentalCondition extends Model
     {
         return $this->hasMany(MentalConditionQuestion::class);
     }
+
+    public function answers()
+    {
+        return $this->hasMany(Answer::class);
+    }
 }
