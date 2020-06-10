@@ -65,7 +65,7 @@
 </head>
 <body>
 <div class="flex-center position-ref full-height">
-    <p>Thank you for verifying your email address, please continue to the <a href="https://mindcare.netlify.app/signin">login</a> page.</p>
+    <p>Thank you for verifying your email address, please continue to the <a href="https://mindcare.netlify.app">login</a> page.</p>
 </div>
 </body>
 </html>
