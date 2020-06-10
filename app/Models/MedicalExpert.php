@@ -7,4 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class MedicalExpert extends Model
 {
     protected $guarded = [];
+
+    public function getFullNameAttribute()
+    {
+        return $this->first_name.' '.$this->last_name;
+    }
 }
