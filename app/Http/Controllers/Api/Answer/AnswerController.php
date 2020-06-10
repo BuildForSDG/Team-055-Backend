@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\Answer;
 
+use App\Events\MentalConditionTestEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Answer\StoreRequest;
 use App\Http\Resources\Api\Answer\AnswerResource;
@@ -9,7 +10,6 @@ use App\Models\Answer;
 use App\Models\MentalCondition;
 use App\Models\MentalConditionQuestionOption;
 use App\Services\MentalConditionPoint\MentalConditionPointService;
-use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 
@@ -56,6 +56,7 @@ class AnswerController extends Controller
             //update answer with scored point and possible ailment
             (new MentalConditionPointService($mentalCondition, $answer))->run();
         });
+        event(new MentalConditionTestEvent(request()->user(), $answer));
         return new AnswerResource($answer);
     }
 }
