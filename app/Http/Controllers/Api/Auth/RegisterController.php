@@ -41,17 +41,4 @@ class RegisterController extends Controller
         });
         return new UserResource($user);
     }
-
-    public function verify($token)
-    {
-        $user = User::where('remember_token', $token)->first();
-        if($user) {
-            $user->remember_token = '';
-            $user->email_verified_at = Carbon::now();
-            $user->status = UserStatus::ACTIVE;
-            $user->save();
-            return new UserResource($user);
-        }
-        return $this->resourceNotFound();
-    }
 }

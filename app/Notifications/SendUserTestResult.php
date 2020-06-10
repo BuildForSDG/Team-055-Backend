@@ -3,6 +3,7 @@
 namespace App\Notifications;
 
 use App\Models\Answer;
+use App\Models\MedicalExpert;
 use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -14,16 +15,18 @@ class SendUserTestResult extends Notification
 
     protected $user;
     protected $answer;
+    protected $expert;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct(User $user, Answer $answer)
+    public function __construct(User $user, Answer $answer, MedicalExpert $expert)
     {
         $this->user = $user;
         $this->answer = $answer;
+        $this->expert = $expert;
     }
 
     /**
@@ -50,6 +53,10 @@ class SendUserTestResult extends Notification
                     ->line('Thank you for taking the test on mindcare')
                     ->line('Your score point is '.$this->answer->scored_point)
                     ->line('We recommend you '.$this->answer->possible_ailment)
+                    ->line('We are sharing you info of our medical expert')
+                    ->line('Name : '.$this->expert->title.' '.$this->expert->full_name)
+                    ->line('Phone Number : '.$this->expert->phone_number)
+                    ->line('About : '.$this->expert->about)
                     ->action('Notification Action', url('/'))
                     ->line('Thank you for using our application!');
     }

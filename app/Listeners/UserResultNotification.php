@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\MentalConditionTestEvent;
+use App\Models\MedicalExpert;
 use App\Notifications\SendUserTestResult;
 
 class UserResultNotification
@@ -26,6 +27,7 @@ class UserResultNotification
     public function handle(MentalConditionTestEvent $event)
     {
         //send email to user
-        $event->user->notify(new SendUserTestResult($event->user, $event->answer));
+        $experts = MedicalExpert::where('state_id', $event->user->profile->state_id)->get()->shuffle()->first();
+        $event->user->notify(new SendUserTestResult($event->user, $event->answer, $experts));
     }
 }
