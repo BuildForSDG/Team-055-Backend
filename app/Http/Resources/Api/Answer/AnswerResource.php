@@ -17,6 +17,7 @@ class AnswerResource extends JsonResource
         return [
             'email' => $this->user->email,
             'mental_condition' => $this->mental_condition->mental_condition,
+            'level' => $this->level,
             'scored_point' => $this->scored_point,
             'possible_ailment' => $this->possible_ailment,
             'answer_logs' => AnswerLogResource::collection($this->answer_logs)

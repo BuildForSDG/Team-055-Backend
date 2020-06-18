@@ -21,7 +21,8 @@ class MedicalExpertResource extends JsonResource
             'email' => $this->email,
             'state' => $this->state->name,
             'address' => $this->address,
-            'about' => $this->about
+            'about' => $this->about,
+            'image' => $this->getMedicalExpertImageLink()
         ];
     }
 }
