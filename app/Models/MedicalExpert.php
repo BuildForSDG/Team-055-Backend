@@ -12,4 +12,9 @@ class MedicalExpert extends Model
     {
         return $this->first_name.' '.$this->last_name;
     }
+
+    public function state()
+    {
+        return $this->belongsTo(State::class);
+    }
 }

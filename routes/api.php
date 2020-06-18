@@ -54,7 +54,7 @@ Route::group(['middleware' => 'apiLogger'], function() {
 
     Route::get('/states', 'Api\State\StateController@lists');
     Route::get('/states/{state}/lgas', 'Api\State\StateController@lgaLists');
-
+    Route::get('/medical-experts', 'Api\MedicalExpert\MedicalExpertController@lists');
 });
 
 
