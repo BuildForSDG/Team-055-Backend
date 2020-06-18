@@ -17,4 +17,13 @@ class MedicalExpert extends Model
     {
         return $this->belongsTo(State::class);
     }
+
+    public function getMedicalExpertImageLink()
+    {
+        if($this->image_url) {
+            return $this->image_url;
+        }
+        $hash = $this->phone_number ? $this->phone_number : $this->email;
+        return 'https://www.gravatar.com/avatar/'.md5($hash).'?d=mp';
+    }
 }
