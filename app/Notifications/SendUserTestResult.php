@@ -48,17 +48,32 @@ class SendUserTestResult extends Notification
      */
     public function toMail($notifiable)
     {
+        return $this->checkExpertAvailability();
+    }
+
+    /**
+     *
+     */
+    private function checkExpertAvailability()
+    {
+        if($this->expert) {
+            return (new MailMessage)
+                ->line('Hi '.$this->user->name)
+                ->line('Thank you for taking the test on mindcare')
+                ->line('Your score point is '.$this->answer->scored_point)
+                ->line('We recommend you '.$this->answer->possible_ailment)
+                ->line('We are sharing you info of our medical expert')
+                ->line('Name : '.$this->expert->title.' '.$this->expert->full_name)
+                ->line('Phone Number : '.$this->expert->phone_number)
+                ->line('About : '.$this->expert->about)
+                ->line('Thank you for using our application!');
+        }
         return (new MailMessage)
-                    ->line('Hi '.$this->user->name)
-                    ->line('Thank you for taking the test on mindcare')
-                    ->line('Your score point is '.$this->answer->scored_point)
-                    ->line('We recommend you '.$this->answer->possible_ailment)
-                    ->line('We are sharing you info of our medical expert')
-                    ->line('Name : '.$this->expert->title.' '.$this->expert->full_name)
-                    ->line('Phone Number : '.$this->expert->phone_number)
-                    ->line('About : '.$this->expert->about)
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+            ->line('Hi '.$this->user->name)
+            ->line('Thank you for taking the test on mindcare')
+            ->line('Your score point is '.$this->answer->scored_point)
+            ->line('We recommend you '.$this->answer->possible_ailment)
+            ->line('Thank you for using our application!');
     }
 
     /**
