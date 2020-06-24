@@ -29,7 +29,7 @@ class MentalConditionController extends Controller
         $mental_condition->mental_condition = $condition = $request->condition;
         $mental_condition->slug = Str::slug($condition);
         $mental_condition->save();
-        return new MentalConditionResource($mental_condition);
+        return $this->conditionWithDetails($mental_condition);
     }
 
     public function update(UpdateRequest $request, MentalCondition $mentalCondition)
@@ -37,7 +37,7 @@ class MentalConditionController extends Controller
         $mentalCondition->mental_condition = $request->condition;
         $mentalCondition->slug = Str::slug($request->condition);
         $mentalCondition->save();
-        return new MentalConditionResource(MentalCondition::find($mentalCondition->id));
+        return $this->conditionWithDetails(MentalCondition::findOrFail($mentalCondition->id));
     }
 
     public function delete(MentalCondition $mentalCondition)
@@ -48,6 +48,13 @@ class MentalConditionController extends Controller
 
     public function single(MentalCondition $mentalCondition)
     {
-        return new MentalConditionResource($mentalCondition);
+        return $this->conditionWithDetails($mentalCondition);
+    }
+
+    protected function conditionWithDetails($mentalCondition)
+    {
+        return (new MentalConditionResource($mentalCondition))->additional([
+            'details' => $mentalCondition->details
+        ]);
     }
 }
