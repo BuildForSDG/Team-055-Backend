@@ -26,12 +26,7 @@ class RegisterController extends Controller
             $user->remember_token = Utilities::generateToken();
             $user->save();
 
-            $user->profile()->create([
-                'state_id' => $request->state,
-                'dob' => $request->dob,
-                'phone_number' => $request->phone_number,
-                'lga_id' => $request->lga ? $request->lga : null
-            ]);
+            $user->profile()->create();
 
             //assign them a role of 'User'
             $user->assignRole('User');
